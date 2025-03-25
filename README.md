@@ -64,7 +64,7 @@ Clique [aqui](https://trello.com/b/dLc4CbiK/backlog-list-half-wizards) para aces
 | NOME               | FUNÇÃO        | GITHUB                               |
 |--------------------|---------------|--------------------------------------|
 | Bruna Regra        | Project Owner | [regrabru](https://github.com/regrabru)  |
-| Pamela Freitas     | Developer     | [PaamFreitas18](https://github.com/PaamFreitas18)   |
+| Pamela Freitas     | Scrum Master  | [PaamFreitas18](https://github.com/PaamFreitas18)   |
 | Maria Eduarda      | Developer     | [ferreira-me](https://github.com/ferreira-me) |
 | Leandro Barbosa    | Developer     | [gmlebc](https://github.com/gmlebc)|
 
