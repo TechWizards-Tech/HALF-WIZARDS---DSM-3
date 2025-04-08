@@ -87,7 +87,17 @@ Clique [aqui](https://trello.com/b/dLc4CbiK/backlog-list-half-wizards) para aces
 
 ## LINGUAGENS E FERRAMENTAS
 <br>
+O desenvolvimento da plataforma seguirá o catálogo de tecnologias definido para o semestre, sendo elas:
+
+- **Frontend:** React com TypeScript  
+- **Backend:** Node.js  
+- **Banco de Dados:** MongoDB  
+- **Prototipação de Interface:** Figma  
+- **Controle de Versão e Tarefas:** GitHub (Repositório e GitHub Projects ou Trello)
+
 
 <span id="sprint-1">
 
 ## :page_with_curl: SPRINT 1 
+
+Nesta primeira sprint, a nossa equipe irá focar no desenvolvimento do protótipo da interface da plataforma, com páginas de login, visualização de dados e gráficos, além da criação de uma página explicativa sobre o projeto. Serão aplicados os princípios de design responsivo e o protótipo será desenvolvido no Figma. Também será configurado o ambiente de desenvolvimento com as tecnologias definidas (Node.js, React TypeScript e MongoDB) e organizado o repositório no GitHub.
