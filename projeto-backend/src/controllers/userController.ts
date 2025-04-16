@@ -5,8 +5,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 // Registro
-// Registro
-// Registro
 export const registerUser = async (req: Request, res: Response): Promise<void> => {
   try {
     const { nome, email, password } = req.body;
