@@ -13,7 +13,7 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
     const senhaValida = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/.test(password);
     if (!senhaValida) {
       res.status(400).json({
-        message: "A senha deve ter no mínimo 6 caracteres, com uma letra maiúscula, uma minúscula e um número."
+        message: "Senha nao atende aos requisitos. registerUser .userControler.ts"
       });
       return;
     }

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { LoginForm } from "@/components/login-form";
-import { RegisterForm } from "@/components/register-form";
+
 import { CloudRainWind } from 'lucide-react';
+import { LoginForm } from "./Loginform";
+import { Registerform } from "./Registerform";
 
 export default function Home() {
     const [isLogin, setIsLogin] = useState(true);
@@ -23,7 +24,7 @@ export default function Home() {
                                 onClick={() => setIsLogin(false)}
                             />
                         ) : (
-                            <RegisterForm
+                            <Registerform
                                 className="border border-secundary rounded-2xl p-4"
                                 onClick={() => setIsLogin(true)}
                             />

@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(value);
       },
       message:
-        "A senha deve conter pelo menos uma letra maiúscula, uma minúscula e um número.",
+        "A senha deve conter pelo menos uma letra maiúscula, uma minúscula e um número. User.ts",
     },
   },
 });
