@@ -46,8 +46,8 @@ const Wavecard = ({
   };
 
   return (
-    <Card className="overflow-hidden">
-      <CardHeader className="bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900 dark:to-cyan-950">
+    <Card className="overflow-hidden p-0">
+      <CardHeader className="bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900 dark:to-cyan-950 p-6 text-2xl">
         <CardTitle className="flex items-center justify-between">
           <span>Tamanho de Onda</span>
           <Waves className="h-5 w-5" />

@@ -41,7 +41,9 @@ import {
   
   export function Appsidebar() {
     return (
-      <Sidebar>
+      <Sidebar
+      
+      >
         {/* <SidebarHeader className="font-bold text-2xl">TechWinds </SidebarHeader> */}
         <SidebarContent>
           <SidebarGroup>

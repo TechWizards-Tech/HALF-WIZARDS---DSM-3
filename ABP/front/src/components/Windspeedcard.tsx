@@ -45,8 +45,8 @@ const Windspeedcard = ({
   };
 
   return (
-    <Card className="overflow-hidden">
-      <CardHeader className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-950">
+    <Card className="overflow-hidden p-0">
+      <CardHeader className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-950 p-6 text-2xl">
         <CardTitle className="flex items-center justify-between">
           <span>Velocidade do Vento</span>
           <Wind className="h-5 w-5" />

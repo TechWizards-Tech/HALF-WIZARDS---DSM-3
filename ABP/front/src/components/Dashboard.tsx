@@ -1,6 +1,7 @@
 import { Appsidebar } from "./Appsidebar";
 import { Separator } from "@/components/ui/separator";
 import {
+  SidebarContent,
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
@@ -13,7 +14,11 @@ import Windspeedcard from "./Windspeedcard";
 
 export default function Page() {
   return (
-    <SidebarProvider>
+    <SidebarProvider
+
+    
+    
+    >
       <Appsidebar />
       <SidebarInset>
         <header className="flex flex-row h-16 shrink-0 items-center gap-2 border-b px-4 justify-between">
@@ -22,8 +27,8 @@ export default function Page() {
             <Separator orientation="vertical" className="mr-2 h-4" />
           </div>
 
-          <div className="flex justify-center gap-2 md:justify-start items-end flex-row-reverse">
-            <a href="#" className="flex items-center text-2xl font-bold">
+          <div className=" not-only:flex justify-center gap-2 md:justify-start items-end flex-row-reverse">
+            <a href="#" className="flex items-center text-3xl font-bold">
               TechWinds
               <CloudRainWind className="stroke-2 size-15" />
             </a>
@@ -33,7 +38,7 @@ export default function Page() {
         <div className="flex flex-1 flex-col gap-4 p-4">
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <Wavecard currentHeight={1.5} maxHeight={3} />
+            <Wavecard currentHeight={1.5} maxHeight={3}/>
             <Windspeedcard currentSpeed={30} maxSpeed={60} />
           </div>
 
