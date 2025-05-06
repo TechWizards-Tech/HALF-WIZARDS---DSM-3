@@ -47,45 +47,47 @@ const Wavecard = ({
 
   return (
     <Card className="overflow-hidden p-0">
-      <CardHeader className="bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900 dark:to-cyan-950 p-6 text-2xl">
+      <CardHeader className="bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900 dark:to-cyan-950 text-2xl">
         <CardTitle className="flex items-center justify-between">
           <span>Tamanho de Onda</span>
-          <Waves className="h-5 w-5" />
+          <Waves className="size-10" />
         </CardTitle>
       </CardHeader>
-      <CardContent className="pt-6">
-        <div className="flex flex-col">
-          <div className="flex justify-between items-center mb-2">
-            <div className="text-3xl font-bold tracking-tight flex items-baseline">
-              <span className={getColorClass(currentHeight)}>
-                {currentHeight.toFixed(1)}
-              </span>
-              <span className="text-sm ml-1 text-muted-foreground">{unit}</span>
-            </div>
-            <div className="bg-muted px-2 py-1 rounded text-xs">
-              Período: {period}s
-            </div>
-          </div>
 
-          <div className="relative">
-            <Progress
-              value={percentage}
-              className={`h-2 mt-2 [&>div]:${getProgressColor(currentHeight)}`}
-            />
-          </div>
 
-          <div className="flex justify-between items-center mt-4">
-            <div className="text-sm text-muted-foreground">
-              Max: {maxHeight} {unit}
+      <div className="p-3">
+          <CardContent>
+            <div className="flex flex-col">
+              <div className="flex justify-between items-center">
+                <div className="text-3xl font-bold tracking-tight flex items-baseline">
+                  <span className={getColorClass(currentHeight)}>
+                    {currentHeight.toFixed(1)}
+                  </span>
+                  <span className="text-sm ml-1 text-muted-foreground">{unit}</span>
+                </div>
+                <div className="bg-muted px-2 py-1 rounded text-xs">
+                  Período: {period}s
+                </div>
+              </div>
+              <div className="relative">
+                <Progress
+                  value={percentage}
+                  className={`h-2 mt-2 [&>div]:${getProgressColor(currentHeight)}`}
+                />
+              </div>
+              <div className="flex justify-between items-center mt-4">
+                <div className="text-sm text-muted-foreground">
+                  Max: {maxHeight} {unit}
+                </div>
+                <div
+                  className={`text-sm font-medium ${getColorClass(currentHeight)}`}
+                >
+                  {getWaveCategory(currentHeight)}
+                </div>
+              </div>
             </div>
-            <div
-              className={`text-sm font-medium ${getColorClass(currentHeight)}`}
-            >
-              {getWaveCategory(currentHeight)}
-            </div>
-          </div>
-        </div>
-      </CardContent>
+          </CardContent>
+      </div>
     </Card>
   );
 };

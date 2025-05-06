@@ -13,8 +13,6 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
@@ -152,9 +150,8 @@ export function Charttwo() {
   })
 
   return (
-    <Card>
-        
-      <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
+    <Card className="gap-0 m-0 p-0 justify-center">
+      <CardHeader className="flex items-center gap-2 sm:flex-row">
         <div className="grid flex-1 gap-1 text-center sm:text-left">
           <CardTitle>Area Chart - Interactive</CardTitle>
           <CardDescription>
@@ -183,7 +180,7 @@ export function Charttwo() {
       </CardHeader>
 
 
-      <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
+      <CardContent >
         <ChartContainer
           config={chartConfig}
           className="aspect-auto h-[250px] w-full"
@@ -258,7 +255,7 @@ export function Charttwo() {
               stroke="var(--color-desktop)"
               stackId="a"
             />
-            <ChartLegend content={<ChartLegendContent />} />
+            {/* <ChartLegend content={<ChartLegendContent />} /> */}
           </AreaChart>
         </ChartContainer>
       </CardContent>

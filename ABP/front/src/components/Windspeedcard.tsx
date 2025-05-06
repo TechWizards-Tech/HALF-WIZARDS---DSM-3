@@ -38,21 +38,21 @@ const Windspeedcard = ({
 
   // Get background color for progress bar
   const getProgressColor = (speed: number): string => {
-    if (speed < 20) return "!bg-green-500";
-    if (speed < 40) return "!bg-blue-500";
-    if (speed < 60) return "!bg-yellow-500";
-    return "!bg-red-500";
+    if (speed < 20) return "bg-green-500";
+    if (speed < 40) return "bg-blue-500";
+    if (speed < 60) return "bg-yellow-500";
+    return "bg-red-500";
   };
 
   return (
     <Card className="overflow-hidden p-0">
-      <CardHeader className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-950 p-6 text-2xl">
+      <CardHeader className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-950 text-2xl">
         <CardTitle className="flex items-center justify-between">
           <span>Velocidade do Vento</span>
-          <Wind className="h-5 w-5" />
+          <Wind className="size-10" />
         </CardTitle>
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent>
         <div className="flex flex-col">
           <div className="flex justify-between items-center mb-2">
             <div className="text-3xl font-bold tracking-tight flex items-baseline">
