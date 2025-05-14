@@ -25,7 +25,7 @@ export function LoginForm({
         console.log("Login bem-sucedido:", response);
         localStorage.setItem("token", response.token);
         alert("Login realizado com sucesso!");
-        navigate("/dashboard"); // Navega para a página de dashboard
+        navigate("/"); // Navega para a página de dashboard
       } else {
         alert("E-mail ou senha inválidos.");
       }

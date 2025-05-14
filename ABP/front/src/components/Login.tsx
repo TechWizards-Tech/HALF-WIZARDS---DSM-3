@@ -4,7 +4,7 @@ import { CloudRainWind } from 'lucide-react';
 import { LoginForm } from "./Loginform";
 import { Registerform } from "./Registerform";
 
-export default function Home() {
+export default function Login() {
     const [isLogin, setIsLogin] = useState(true);
 
     return (

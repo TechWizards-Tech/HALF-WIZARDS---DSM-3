@@ -1,4 +1,4 @@
-import { CloudRainWind } from "lucide-react";
+import { CloudRainWind, LogIn } from "lucide-react";
 import Wavecard from "./Wavecard";
 import Windspeedcard from "./Windspeedcard";
 import Customcard from "./Customcard";
@@ -6,9 +6,14 @@ import Linechart from "./Linechart";
 import Areachart from "./Areachart";
 import WeatherTable from "./Weathertable";
 import { useState } from "react";
+import StationSelector from "./Stationselector";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
-  const generateLineChartData1 = () => {
+  const [selectedStation, setSelectedStation] = useState("estacao1");
+
+  function generateLineChartData1() {
     return [
       { name: "Jan", value: 186 },
       { name: "Fev", value: 305 },
@@ -23,24 +28,7 @@ export default function Dashboard() {
       { name: "Nov", value: 210 },
       { name: "Dez", value: 260 },
     ];
-  };
-
-  const generateLineChartData2 = () => {
-    return [
-      { name: "Jan", value: 172 },
-      { name: "Fev", value: 288 },
-      { name: "Mar", value: 199 },
-      { name: "Abr", value: 120 },
-      { name: "Mai", value: 264 },
-      { name: "Jun", value: 311 },
-      { name: "Jul", value: 85 },
-      { name: "Ago", value: 278 },
-      { name: "Set", value: 144 },
-      { name: "Out", value: 233 },
-      { name: "Nov", value: 190 },
-      { name: "Dez", value: 303 },
-    ];
-  };
+  }
 
   const generateAreaChartData = (days: number) => {
     const data = [];
@@ -49,9 +37,12 @@ export default function Dashboard() {
     for (let i = days; i >= 0; i--) {
       const date = new Date(today);
       date.setDate(date.getDate() - i);
-      
+
       data.push({
-        name: date.toLocaleDateString('pt-BR', { month: 'short', day: 'numeric' }),
+        name: date.toLocaleDateString("pt-BR", {
+          month: "short",
+          day: "numeric",
+        }),
         value: Math.floor(Math.random() * 400) + 100,
         secondaryValue: Math.floor(Math.random() * 300) + 100,
       });
@@ -63,22 +54,28 @@ export default function Dashboard() {
   const generateWeatherTableData = (days: number) => {
     const data = [];
     const today = new Date();
-    
+
     for (let i = 0; i < days; i++) {
       const date = new Date(today);
       date.setDate(date.getDate() + i);
-      
+
       data.push({
-        date: date.toLocaleDateString('pt-BR', { weekday: 'short', day: 'numeric', month: 'short' }),
+        date: date.toLocaleDateString("pt-BR", {
+          weekday: "short",
+          day: "numeric",
+          month: "short",
+        }),
         waveHeight: Math.random() * 2 + 0.5, // Ondas entre 0.5m e 2.5m
         wavePeriod: Math.floor(Math.random() * 6) + 5, // Período entre 5s e 10s
         windSpeed: Math.floor(Math.random() * 30) + 10, // Vento entre 10km/h e 40km/h
-        windDirection: ["N", "NE", "L", "SE", "S", "SO", "O", "NO"][Math.floor(Math.random() * 8)],
+        windDirection: ["N", "NE", "L", "SE", "S", "SO", "O", "NO"][
+          Math.floor(Math.random() * 8)
+        ],
         temperature: Math.floor(Math.random() * 10) + 20, // Temperatura entre 20°C e 30°C
         precipitation: Math.floor(Math.random() * 30), // Precipitação entre 0mm e 30mm
       });
     }
-    
+
     return data;
   };
 
@@ -90,13 +87,12 @@ export default function Dashboard() {
   ];
 
   const [lineChartData] = useState(generateLineChartData1());
-  const [lineChartData2] = useState(generateLineChartData2());
   const [areaChartData, setAreaChartData] = useState(generateAreaChartData(90));
   const [weatherData] = useState(generateWeatherTableData(7)); // 7 dias de previsão
 
   const handleTimeRangeChange = (value: string) => {
     let days = 90;
-    
+
     switch (value) {
       case "Último mês":
         days = 30;
@@ -110,13 +106,12 @@ export default function Dashboard() {
       default:
         days = 90;
     }
-    
+
     setAreaChartData(generateAreaChartData(days));
   };
 
   return (
     <>
-      
       <div className="sticky top-0 bg-white">
         <header className="flex flex-row h-16 shrink-0 items-center gap-2 border-b px-4 justify-between ">
           <div className=" not-only:flex justify-center gap-2 md:justify-start items-end flex-row-reverse">
@@ -124,6 +119,22 @@ export default function Dashboard() {
               TechWinds
               <CloudRainWind className="stroke-2 size-15" />
             </a>
+          </div>
+
+          <div className="flex items-center gap-10">
+            <StationSelector
+              selectedStation={selectedStation}
+              onStationChange={setSelectedStation}
+              className="hidden sm:flex"
+            />
+
+            <Button asChild className="w-64 gap-2">
+              <Link to="/login">
+                Deseja logar?
+                <LogIn className="w-4 h-4" />
+              </Link>
+            </Button>
+
           </div>
         </header>
       </div>
@@ -144,7 +155,6 @@ export default function Dashboard() {
                   data={lineChartData}
                   className="animate-fade-in"
                 />
-                
               </div>
               <div className="w-1/2">
                 <Areachart
@@ -157,7 +167,6 @@ export default function Dashboard() {
                 />
               </div>
             </div>
-            
           }
           backContent={
             <div className="mb-6">

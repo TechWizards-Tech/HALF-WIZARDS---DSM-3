@@ -13,7 +13,7 @@ const Customcard = ({ frontContent, backContent, className }: CustomcardProps) =
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const handleScroll = (e: WheelEvent) => {
+    const handleScroll = (_e: WheelEvent) => {
       // Debounce scroll events to prevent rapid toggling
       const now = Date.now();
       if (now - lastScrollTime.current < 300) {
