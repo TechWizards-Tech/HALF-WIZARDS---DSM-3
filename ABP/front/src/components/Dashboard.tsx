@@ -10,11 +10,13 @@ import StationSelector from "./Stationselector";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import NavigationAlert from "./Navigationalert";
+import Linechart2 from "./Linechart2";
+import Areachart2 from "./Areachart2";
 
 export default function Dashboard() {
   const [selectedStation, setSelectedStation] = useState("estacao1");
-  const currentWaveHeight = 1.0;
-  const currentWindSpeed = 10;
+  const currentWaveHeight = 3;
+  const currentWindSpeed = 25;
 
   function generateLineChartData1() {
     return [
@@ -143,10 +145,10 @@ export default function Dashboard() {
                 className="hidden sm:flex"
               />
 
-              <Button asChild className="w-32 gap-2">
+              <Button asChild className="w-32 gap-2 group">
                 <Link to="/login">
                   Deseja logar?
-                  <LogIn className="w-4 h-4" />
+                  <LogIn className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
@@ -162,7 +164,9 @@ export default function Dashboard() {
           <Customcard
             frontContent={
               <div className="flex flex-row w-full gap-6 place-content-around">
-                <div className="w-1/2">
+
+
+                {/* <div className="w-1/2">
                   <Linechart
                     title="Tendência Mensal"
                     subtitle="Janeiro - Dezembro 2024"
@@ -170,6 +174,8 @@ export default function Dashboard() {
                     className="animate-fade-in"
                   />
                 </div>
+
+
                 <div className="w-1/2">
                   <Areachart
                     title="Gráfico Interativo"
@@ -179,7 +185,18 @@ export default function Dashboard() {
                     onTimeRangeChange={handleTimeRangeChange}
                     className="animate-fade-in"
                   />
+                </div> */}
+
+                <div className="w-1/2">
+                  <Linechart2 />
                 </div>
+
+
+                <div className="w-1/2">
+                  <Areachart2 />
+                </div>
+
+                
               </div>
             }
             backContent={
