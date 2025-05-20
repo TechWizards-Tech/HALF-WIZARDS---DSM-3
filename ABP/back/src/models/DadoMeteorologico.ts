@@ -1,19 +1,34 @@
-// RF02: Modelagem dos dados meteorológicos
+
+// import mongoose from 'mongoose';
+
+// const dadoMeteorologicoSchema = new mongoose.Schema({
+//   estacao: { type: String, required: true },
+//   dataHora: { type: Date, required: true },
+//   temperatura: { type: Number, required: true },
+//   umidade: { type: Number, required: true },
+//   velocidadeVento: { type: Number, required: true },
+//   direcaoVento: { type: String, required: true },
+//   pressao: { type: Number, required: true }
+// });
+
+// export default mongoose.model('DadoMeteorologico', dadoMeteorologicoSchema);
+
+
 import mongoose from 'mongoose';
 
-const dadoMeteorologicoSchema = new mongoose.Schema({
-  estacao: { type: String, required: true },
-  dataHora: { type: Date, required: true },
-  temperatura: { type: Number, required: true },
-  umidade: { type: Number, required: true },
-  velocidadeVento: { type: Number, required: true },
-  direcaoVento: { type: String, required: true },
-  pressao: { type: Number, required: true }
-});
+const DadoSchema = new mongoose.Schema({
+  Temp: Number,
+  Hum: Number,
+  cab_temp: Number,
+  bat_volts: Number,
+  uv_level: Number,
+  Bar: Number,
+  wind_peak: Number,
+  wind_rt: Number,
+  wind_avg: Number,
+  wind_dir_rt: Number,
+  wind_dir_avg: Number,
+  reading_time: { type: String, required: true, unique: true },
+}, { timestamps: true });
 
-
-
-export default mongoose.model('DadoMeteorologico', dadoMeteorologicoSchema);
-
-
-/*models/DadoMeteorologico.ts – Define o modelo dos dados meteorológicos*/
+export const DadoMeteorologico = mongoose.model('DadoMeteorologico', DadoSchema);

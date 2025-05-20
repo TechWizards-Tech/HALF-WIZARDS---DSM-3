@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dadosRouter from './routes/dados';
 import authRouter from './routes/auth';
+import { sincronizarDados } from './services/sincronizarMySQL';
 
 dotenv.config();
 
@@ -33,3 +34,5 @@ app.use('/api/auth', authRouter);
 app.listen(process.env.PORT || 5000, () => {
   console.log(`🚀 Rodando na porta ${process.env.PORT || 5000}`);
 });
+
+sincronizarDados();
