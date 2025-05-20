@@ -7,10 +7,12 @@ const router = Router();
 router.get('/', async (req, res) => {
   try {
     const dados = await DadoMeteorologico.find().sort({ reading_time: -1 });
+  
     res.json(dados);
   } catch (err) {
     res.status(500).json({ erro: 'Erro ao buscar dados' });
   }
 });
+
 
 export default router;

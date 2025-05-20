@@ -30,7 +30,7 @@ export async function sincronizarDados() {
   console.log('⏰ Iniciando sincronização com MySQL...');
 
   try {
-    const [rows] = await mysqlConnection.query('SELECT * FROM Sensor ORDER BY reading_time DESC LIMIT 10');
+    const [rows] = await mysqlConnection.query('SELECT * FROM Sensor ORDER BY reading_time DESC LIMIT 60');
     const registros = rows as any[];
 
     for (const dado of registros) {

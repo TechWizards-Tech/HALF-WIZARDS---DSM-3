@@ -17,12 +17,12 @@
 import mongoose from 'mongoose';
 
 const DadoSchema = new mongoose.Schema({
-  Temp: Number,
-  Hum: Number,
+  temp: Number,
+  hum: Number,
   cab_temp: Number,
   bat_volts: Number,
   uv_level: Number,
-  Bar: Number,
+  bar: Number,
   wind_peak: Number,
   wind_rt: Number,
   wind_avg: Number,

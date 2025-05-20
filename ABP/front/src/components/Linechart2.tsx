@@ -13,13 +13,14 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const data = [
-  { name: "Jan", varA: 400, varB: 240 },
-  { name: "Feb", varA: 300, varB: 139 },
-  { name: "Mar", varA: 200, varB: 980 },
-  { name: "Apr", varA: 278, varB: 390 },
-  { name: "May", varA: 189, varB: 480 },
-  { name: "Jun", varA: 239, varB: 380 },
-]
+  { name: "Jan", varA: 520, varB: 310 },
+  { name: "Feb", varA: 410, varB: 205 },
+  { name: "Mar", varA: 325, varB: 890 },
+  { name: "Apr", varA: 290, varB: 470 },
+  { name: "May", varA: 175, varB: 530 },
+  { name: "Jun", varA: 260, varB: 410 },
+];
+
 
 export default function Linechart2() {
   return (
@@ -34,7 +35,6 @@ export default function Linechart2() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis yAxisId="left" />
-              <YAxis yAxisId="right" orientation="right" />
               <Tooltip />
               <Legend />
               <Line
@@ -45,7 +45,7 @@ export default function Linechart2() {
                 strokeWidth={2}
               />
               <Line
-                yAxisId="right"
+                yAxisId="left"
                 type="monotone"
                 dataKey="varB"
                 stroke="#82ca9d"
