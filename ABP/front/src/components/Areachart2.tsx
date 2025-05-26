@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+import { useEffect, useState } from "react";
 import {
   AreaChart as RechartsAreaChart,
   Area,
@@ -9,20 +10,40 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from "recharts"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+} from "recharts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const data = [
-  { name: "Jan", varA: 150, varB: 620 },
-  { name: "Feb", varA: 220, varB: 540 },
-  { name: "Mar", varA: 310, varB: 490 },
-  { name: "Apr", varA: 430, varB: 330 },
-  { name: "May", varA: 390, varB: 270 },
-  { name: "Jun", varA: 480, varB: 310 },
-];
+import { getChartData } from "@/services/dadoService"; // ajuste o caminho se necessário
 
+interface DataEntry {
+  name: string;
+  varA: number;
+  varB: number;
+}
 
 export default function Areachart2() {
+  const [data, setData] = useState<DataEntry[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const apiData = await getChartData();
+
+        const formatted = apiData.map((item: any) => ({
+          name: item.month,    // exemplo, ajuste conforme o campo correto do seu backend
+          varA: item.desktop,  // exemplo, ajuste conforme seus dados
+          varB: item.mobile,   // exemplo, ajuste conforme seus dados
+        }));
+
+        setData(formatted);
+      } catch (error) {
+        console.error("Erro ao carregar dados:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Card className="p-4 rounded-2xl shadow-md">
       <CardHeader>
@@ -58,5 +79,5 @@ export default function Areachart2() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
