@@ -46,7 +46,7 @@ export default function Linechart2() {
   }, []);
 
   return (
-    <Card className="p-4 rounded-2xl shadow-md">
+    <Card className="p-4 rounded-2xl shadow-xl border-gray-500 shadow-zinc-500/50">
       <CardHeader>
         <CardTitle className="text-xl">Comparativo de Variáveis (Linha)</CardTitle>
       </CardHeader>

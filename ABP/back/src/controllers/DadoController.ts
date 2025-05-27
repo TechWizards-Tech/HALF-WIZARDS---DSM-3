@@ -3,10 +3,15 @@ import { DadoMeteorologico } from "../models/DadoMeteorologico";
 
 export const getChartData = async (req: Request, res: Response) => {
   try {
-    // Busca os 12 registros mais recentes
-    const dados = await DadoMeteorologico.find().sort({ createdAt: -1 }).limit(12);
+    // Busca os 12 registros mais recentes, ordenados por reading_time desc
+    const dados = await DadoMeteorologico.find()
+      .sort({ reading_time: -1 })
+      .limit(12);
 
-    const chartData = dados.map((item) => {
+    // Inverte para ordem crescente (do mais antigo para o mais recente)
+    const dadosOrdenados = dados.reverse();
+
+    const chartData = dadosOrdenados.map((item) => {
       const date = new Date(item.reading_time);
       const hora = date.toLocaleTimeString("pt-BR", {
         hour: "2-digit",

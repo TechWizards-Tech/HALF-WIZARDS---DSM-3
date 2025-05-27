@@ -15,7 +15,7 @@ const StationSelector: React.FC<StationSelectorProps> = ({
   showFullWidth = false,
 }) => {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row p-2 rounded-2xl shadow-xl border-gray-500 shadow-zinc-500/50">
     <ToggleGroup
       type="single"
       value={selectedStation}
