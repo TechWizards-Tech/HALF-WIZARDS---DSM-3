@@ -45,7 +45,7 @@ export default function Areachart2() {
   }, []);
 
   return (
-    <Card className="p-4 rounded-2xl shadow-md border-gray-500 shadow-zinc-500/50">
+    <Card className="p-4 rounded-2xl shadow-md border-2 border-black shadow-zinc-500/50">
       <CardHeader>
         <CardTitle className="text-xl">Comparativo de Variáveis (Área)</CardTitle>
       </CardHeader>

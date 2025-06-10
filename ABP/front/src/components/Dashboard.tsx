@@ -13,8 +13,8 @@ import Areachart2 from "./Areachart2";
 
 export default function Dashboard() {
   const [selectedStation, setSelectedStation] = useState("estacao1");
-  const currentWaveHeight = 3;
-  const currentWindSpeed = 25;
+  const currentWaveHeight = 1;
+  const currentWindSpeed = 22;
 
   return (
     <>
@@ -51,7 +51,7 @@ export default function Dashboard() {
           </header>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-3">
           <Wavecard currentHeight={1.9} maxHeight={3} />
           <Windspeedcard currentSpeed={36} maxSpeed={60} />
         </div>
@@ -59,7 +59,7 @@ export default function Dashboard() {
         <div className="custom-card p-1 flex">
           <Customcard
             frontContent={
-              <div className="flex flex-row w-full gap-6 place-content-around">
+              <div className="flex flex-row w-full gap-4 place-content-around">
                 <div className="w-1/2">
                   <Linechart2 />
                 </div>
