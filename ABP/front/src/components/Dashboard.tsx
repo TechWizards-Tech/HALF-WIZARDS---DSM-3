@@ -35,11 +35,11 @@ export default function Dashboard() {
                 className="animate-fade-in"
               />
 
-              <StationSelector
-                selectedStation={selectedStation}
+              {/* <StationSelector
+               selectedStation={selectedStation}
                 onStationChange={setSelectedStation}
                 className="hidden sm:flex"
-              />
+              /> */}
 
               <Button asChild className="w-32 gap-2 group">
                 <Link to="/login">
