@@ -3,8 +3,7 @@ import Wavecard from "./Wavecard";
 import Windspeedcard from "./Windspeedcard";
 import Customcard from "./Customcard";
 import WeatherTable from "./Weathertable";
-import { useState } from "react";
-import StationSelector from "./Stationselector";
+// import StationSelector from "./Stationselector";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import NavigationAlert from "./Navigationalert";
@@ -12,7 +11,7 @@ import Linechart2 from "./Linechart2";
 import Areachart2 from "./Areachart2";
 
 export default function Dashboard() {
-  const [selectedStation, setSelectedStation] = useState("estacao1");
+  // const [selectedStation, setSelectedStation] = useState("estacao1");
   const currentWaveHeight = 1;
   const currentWindSpeed = 22;
 
@@ -35,11 +34,11 @@ export default function Dashboard() {
                 className="animate-fade-in"
               />
 
-              <StationSelector
+              {/* <StationSelector
                 selectedStation={selectedStation}
                 onStationChange={setSelectedStation}
                 className="hidden sm:flex"
-              />
+              /> */}
 
               <Button asChild className="w-32 gap-2 group">
                 <Link to="/login">

@@ -55,19 +55,19 @@ export default function WeatherTable({ className }: WeatherTableProps) {
     }
   }
 
-  // ✅ Controle de transição de página (fade-out + update + fade-in)
   const handlePageChange = (newPage: number) => {
     if (newPage === currentPage) return;
     setIsFading(true);
     setTimeout(() => {
       setCurrentPage(newPage);
       setIsFading(false);
-    }, 200); // tempo da transição
+    }, 200);
   };
 
   return (
     <div className={cn("rounded-xl border-2 border-black bg-white shadow-sm", className)}>
-      <div className="flex flex-col md:flex-row items-center justify-between gap-2 px-4 py-3">
+      {/* Top Bar */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-2 px-2 py-2">
         <button
           onClick={handleDownload}
           className="rounded-md bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-600 transition"
@@ -93,8 +93,9 @@ export default function WeatherTable({ className }: WeatherTableProps) {
         </div>
       </div>
 
-      <div className="relative">
-        <table className="min-w-full text-sm text-left text-gray-800">
+      {/* Tabela completa */}
+      <div className="relative max-h-[60vh] overflow-y-auto">
+        <table className="min-w-full table-fixed text-sm text-left text-gray-800">
           <thead className="sticky top-0 z-10 bg-gray-50 text-gray-600 font-semibold shadow-sm">
             <tr>
               <th className="px-4 py-3 text-left">Data</th>
@@ -111,42 +112,36 @@ export default function WeatherTable({ className }: WeatherTableProps) {
               <th className="px-4 py-3 text-right">Dir. Média (°)</th>
             </tr>
           </thead>
-        </table>
-
-        <div className="max-h-[60vh] overflow-y-auto">
-          <div
+          <tbody
             className={cn(
-              "transition-opacity duration-200",
+              "divide-y divide-gray-100 transition-opacity duration-200",
               isFading ? "opacity-0" : "opacity-100"
             )}
           >
-            <table className="min-w-full text-sm text-left text-gray-800">
-              <tbody className="divide-y divide-gray-100">
-                {paginatedData.map((item, index) => (
-                  <tr key={index} className="hover:bg-gray-50 transition">
-                    <td className="px-4 py-2 text-left whitespace-nowrap">
-                      {new Date(item.reading_time).toLocaleString("pt-BR")}
-                    </td>
-                    <td className="px-4 py-2 text-right">{item.temp}</td>
-                    <td className="px-4 py-2 text-right">{item.hum}</td>
-                    <td className="px-4 py-2 text-right">{item.cab_temp}</td>
-                    <td className="px-4 py-2 text-right">{item.bat_volts}</td>
-                    <td className="px-4 py-2 text-right">{item.uv_level}</td>
-                    <td className="px-4 py-2 text-right">{item.bar}</td>
-                    <td className="px-4 py-2 text-right">{item.wind_peak}</td>
-                    <td className="px-4 py-2 text-right">{item.wind_rt}</td>
-                    <td className="px-4 py-2 text-right">{item.wind_avg}</td>
-                    <td className="px-4 py-2 text-right">{item.wind_dir_rt}</td>
-                    <td className="px-4 py-2 text-right">{item.wind_dir_avg}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+            {paginatedData.map((item, index) => (
+              <tr key={index} className="hover:bg-gray-50 transition">
+                <td className="px-4 py-2 text-left whitespace-nowrap">
+                  {new Date(item.reading_time).toLocaleString("pt-BR")}
+                </td>
+                <td className="px-4 py-2 text-right">{item.temp}</td>
+                <td className="px-4 py-2 text-right">{item.hum}</td>
+                <td className="px-4 py-2 text-right">{item.cab_temp}</td>
+                <td className="px-4 py-2 text-right">{item.bat_volts}</td>
+                <td className="px-4 py-2 text-right">{item.uv_level}</td>
+                <td className="px-4 py-2 text-right">{item.bar}</td>
+                <td className="px-4 py-2 text-right">{item.wind_peak}</td>
+                <td className="px-4 py-2 text-right">{item.wind_rt}</td>
+                <td className="px-4 py-2 text-right">{item.wind_avg}</td>
+                <td className="px-4 py-2 text-right">{item.wind_dir_rt}</td>
+                <td className="px-4 py-2 text-right">{item.wind_dir_avg}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      <div className="p-4">
+      {/* Paginação */}
+      <div className="px-4 py-3">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
