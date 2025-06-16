@@ -52,7 +52,7 @@ Clique [aqui](https://trello.com/b/OffzP11L/backlog-list-half-tech) para acessar
 
 | REQUISITO NÃO_FUNCIONAL_ID | REQUISITOS                                                                                          | SPRINTS |
 |----------------------------|-----------------------------------------------------------------------------------------------------|---------|
-|RNF-01                       |O sistema deve exibir gráficos interativos para melhor análise dos dados                             |#03      |
+|RNF-01                       |O sistema deve exibir gráficos interativos para melhor análise dos dados                             |#03✔       |
 |RNF-02                       |A interface deve ser responsiva, garantindo um layout consistente em diferentes dispositivos e tamanhos de tela| #01✔ #02✔    |
 |RNF-03                       |O sistema deve incluir uma página explicativa sobre o projeto                                        |#01✔        |
 <br>
