@@ -35,7 +35,11 @@ export default function Dashboard() {
               />
 
               {/* <StationSelector
+<<<<<<< HEAD
                 selectedStation={selectedStation}
+=======
+               selectedStation={selectedStation}
+>>>>>>> 9432237fdd5ffe58af662bc65c38c56cf715241f
                 onStationChange={setSelectedStation}
                 className="hidden sm:flex"
               /> */}
