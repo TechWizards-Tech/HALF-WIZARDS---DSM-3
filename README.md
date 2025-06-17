@@ -117,4 +117,6 @@ Durante a Sprint 1, a equipe concentrou-se na criação do protótipo da interfa
 
 Na Sprint 2, realizaremos o sistema de autenticação de usuários, assegurando que apenas usuários autorizados possam acessar funcionalidades restritas, como o download de dados (previsto para a próxima sprint). A equipe também está desenvolvendo a funcionalidade de exibição de gráficos interativos, para permitir a visualização dinâmica dos dados coletados por cada estação meteorológica. Além disso, foram feitos aprimoramentos na responsividade da interface, garantindo compatibilidade com diferentes tamanhos de tela.
 
+Na Sprint 3, a equipe implementou a visualização do histórico de dados coletados da estação meteorológica, facilitando o acompanhamento detalhado das informações registradas.Além disso, foi adicionado o recurso de download de dados em formato CSV, permitindo que os usuários exportem informações para uso externo. Essas entregas complementam as funcionalidades iniciadas nas sprints anteriores e avançam na disponibilização de dados ao usuário final.
+
 
